@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Recipe Finder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Smart Recipe Finder</h1>
+    <p class="sub">Browse recipes, search by ingredient or cook time.</p>
+  </header>
+
+  <div id="errorBanner" class="error-banner" hidden></div>
+
+  <section class="panel">
+    <div class="search-row">
+      <input id="ingredientSearch" type="text" placeholder="Search by ingredient (e.g. chicken)">
+      <input id="maxTime" type="number" min="0" placeholder="Max minutes">
+      <button id="clearSearch" class="ghost" type="button">Clear</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Search real recipes</h2>
+    <form id="spoonacularForm" class="search-row">
+      <input id="spoonacularQuery" type="text" placeholder="Search Spoonacular (e.g. lasagna)" required>
+      <button type="submit">Search</button>
+    </form>
+  </section>
+
+  <section>
+    <div id="spoonacularGrid" class="grid"></div>
+    <p id="spoonacularEmptyMsg" class="empty" hidden>No results yet — try a search above.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Suggest something for me</h2>
+    <form id="suggestForm" class="search-row">
+      <input id="suggestIngredients" type="text" placeholder="Ingredients you have (comma separated)" required>
+      <button type="submit">Suggest something for me</button>
+    </form>
+    <div id="suggestResult" class="suggest-result" hidden>
+      <h3 id="suggestName"></h3>
+      <p id="suggestDescription"></p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Add a new recipe</h2>
+    <form id="addForm" class="add-form">
+      <input id="rName" type="text" placeholder="Recipe name" required>
+      <input id="rIngredients" type="text" placeholder="Ingredients (comma separated)" required>
+      <input id="rCookTime" type="number" min="1" placeholder="Cook time (minutes)" required>
+      <button type="submit">Save recipe</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Your recipes</h2>
+    <div id="grid" class="grid"></div>
+    <p id="emptyMsg" class="empty" hidden>No recipes match your search.</p>
+  </section>
+</div>
+
+<script type="module" src="recipe.js"></script>
+</body>
+</html>
